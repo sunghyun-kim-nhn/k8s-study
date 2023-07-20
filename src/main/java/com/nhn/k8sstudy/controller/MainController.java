@@ -24,7 +24,10 @@ public class MainController {
 			podName = "Unknown";
 		}
 
-		log.info("MainController called from {}", podName);
+		log.debug("DEBUG.. MainController called from {}", podName);
+		log.info("INFO.. MainController called from {}", podName);
+		log.warn("WARN.. MainController called from {}", podName);
+		log.error("ERROR.. MainController called from {}", podName);
 
 		return podName;
 	}
