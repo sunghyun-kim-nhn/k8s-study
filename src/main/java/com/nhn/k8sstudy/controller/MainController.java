@@ -20,14 +20,7 @@ public class MainController {
 
 	@GetMapping("/")
 	public String main() {
-		String podName;
-		try {
-			podName = Optional.ofNullable(InetAddress.getLocalHost())
-				.map(InetAddress::getHostName)
-				.orElse(StringUtils.EMPTY);
-		} catch (UnknownHostException e) {
-			podName = "Unknown";
-		}
+		String podName = getPodName();
 
 		log.debug("DEBUG.. MainController called from {}", podName);
 		log.info("INFO.. MainController called from {}", podName);
@@ -43,7 +36,7 @@ public class MainController {
 			System.out.println("cpu using...");
 		}
 
-		return "OK";
+		return getPodName();
 	}
 
 	@GetMapping("/memory")
@@ -52,6 +45,16 @@ public class MainController {
 			randomStringList.add(RandomStringUtils.random(100));
 		}
 
-		return "OK";
+		return getPodName();
+	}
+
+	private String getPodName() {
+		try {
+			return Optional.ofNullable(InetAddress.getLocalHost())
+				.map(InetAddress::getHostName)
+				.orElse(StringUtils.EMPTY);
+		} catch (UnknownHostException e) {
+			return "Unknown";
+		}
 	}
 }
