@@ -18,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 public class MainController {
 	private List<String> randomStringList = new ArrayList<>();
 
-	@GetMapping("/")
+	@GetMapping("/api")
 	public String main() {
 		String podName = getPodName();
 
