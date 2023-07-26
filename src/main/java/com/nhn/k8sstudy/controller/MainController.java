@@ -27,7 +27,7 @@ public class MainController {
 		log.warn("WARN.. MainController called from {}", podName);
 		log.error("ERROR.. MainController called from {}", podName);
 
-		return podName;
+		return "this is API. Pod name is " + podName;
 	}
 
 	@GetMapping("/cpu")
