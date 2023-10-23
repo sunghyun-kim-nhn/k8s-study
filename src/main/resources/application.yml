@@ -1,0 +1,2 @@
+helm:
+  message: "This is the default message. You can change this message using Helm chart."
